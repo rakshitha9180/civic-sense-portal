@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Report and track civic issues in your community.">
+  <title>Civic Issue Reporting Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="#" aria-label="CivicConnect home">
+        <span class="brand-icon" aria-hidden="true">🏙️</span>
+        <span>Civic<span class="brand-accent">Connect</span></span>
+      </a>
+      <span class="header-label">Community Reporting Portal</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">YOUR COMMUNITY, YOUR VOICE</p>
+      <h1>Help make your neighborhood better.</h1>
+      <p>Report a local problem and follow its progress. Every report helps your community.</p>
+      <a class="button button-primary hero-button" href="#report-form">Report an issue <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="content-grid" aria-label="Report and track civic issues">
+      <section class="panel" id="report-form">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">NEW REPORT</p>
+            <h2>Tell us what needs attention</h2>
+          </div>
+          <span class="heading-icon" aria-hidden="true">📝</span>
+        </div>
+
+        <form id="issueForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" placeholder="e.g. Alex Morgan" required maxlength="60">
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="e.g. alex@example.com" required maxlength="100">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="category">Issue type</label>
+            <select id="category" name="category" required>
+              <option value="">Select an issue</option>
+              <option value="Pothole">Pothole</option>
+              <option value="Leaking pipeline">Leaking pipeline</option>
+              <option value="Broken street light">Broken street light</option>
+              <option value="Waterlogging">Waterlogging</option>
+              <option value="Garbage or sanitation">Garbage or sanitation</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="location">Issue location</label>
+            <input id="location" name="location" type="text" placeholder="Street, neighborhood, or nearby landmark" required maxlength="120">
+          </div>
+
+          <div class="field">
+            <label for="description">Describe the issue</label>
+            <textarea id="description" name="description" rows="4" placeholder="Share useful details so the right team can respond." required maxlength="1000"></textarea>
+            <span class="field-hint">Please don’t include sensitive personal information.</span>
+          </div>
+
+          <button class="button button-primary submit-button" type="submit">Submit report <span aria-hidden="true">→</span></button>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <aside class="panel track-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">COMPLAINT TRACKER</p>
+            <h2>Check a report</h2>
+          </div>
+          <span class="heading-icon" aria-hidden="true">🔎</span>
+        </div>
+        <p class="panel-description">Enter a complaint ID to find its current status.</p>
+        <form id="searchForm" class="search-form">
+          <label class="visually-hidden" for="searchId">Complaint ID</label>
+          <input id="searchId" type="text" placeholder="e.g. CIV-123456">
+          <button class="button button-dark" type="submit">Track</button>
+        </form>
+        <div id="searchResult" class="search-result" aria-live="polite"></div>
+
+        <div class="status-guide">
+          <h3>What do statuses mean?</h3>
+          <p><span class="status-dot status-received"></span> <strong>Received</strong> — report submitted</p>
+          <p><span class="status-dot status-progress"></span> <strong>In progress</strong> — being addressed</p>
+          <p><span class="status-dot status-resolved"></span> <strong>Resolved</strong> — work completed</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="reports-section">
+      <div class="reports-heading">
+        <div>
+          <p class="eyebrow">COMMUNITY UPDATES</p>
+          <h2>Recent reports</h2>
+        </div>
+        <span class="report-count" id="reportCount">0 reports</span>
+      </div>
+      <div id="reportsList" class="reports-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>CivicConnect · A community reporting demo</p>
+      <p>Your reports are saved locally in this browser.</p>
+    </div>
+  </footer>
+</body>
+</html>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
